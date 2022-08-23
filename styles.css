@@ -1,0 +1,166 @@
+:root{
+    --bg: hsl(220, 13%, 18%);
+    --outer: #ff9f1c;
+    --inner: #011627;
+    --text: hsla(32, 92%, 61%, 100%);
+    --text2: hsla(232, 100%, 96%, 65%);
+    --line: hsla(232, 100%, 96%, 35%);
+    --avatar: hsl(207, 85%, 18%);
+    --glow: hsl(207, 85%, 48%);
+    --glow2: hsl(207, 100%, 65%);
+    --shadow: hsla(207, 65%, 10%, 60%);
+    --shadow2: hsl(32, 92%, 61%, 30%);
+    --shadow3: hsl(32, 92%, 61%, 100%);
+}
+
+body {
+    margin: 20px;
+    background: var(--bg);
+    /*
+    Challenge:
+    Find a web safe font you like, and add it 
+    to your card.
+    */
+    font-family: 'Montserrat', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: var(--avatar);
+    border: 3px solid var(--avatar);
+    box-shadow: -6px -3px 0 var(--avatar);
+}
+
+.card {
+    position: relative;
+    width: 400px;
+    height: 180px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    /* font-size: 1.1em; */
+    color: var(--text);
+    overflow: hidden;
+    box-shadow: 0 20px 30px -10px var(--shadow);
+}
+
+
+.card::before {
+    content: "";
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    top: -230px;
+    left: -255px;
+    background: var(--inner);
+    border-radius: 150px;
+    border: 90px solid var(--outer);
+    transform: rotate(10deg);
+    z-index: -1;
+}
+
+.text {
+    color: var(--text2);
+    padding: 0 10px 20px 0;
+}
+
+.card-wrapper {
+    margin: 0 auto;
+    width: 440px;
+    height: 220px;
+    border-radius: 8px;
+    box-shadow: 0 20px 15px -12px var(--shadow2);
+}
+
+
+@keyframes glow2 {
+0% {text-shadow: 0px 0px 20px var(--shadow3);}
+25% {text-shadow: 20px 0px 30px var(--shadow3);}
+50% {text-shadow: 0px 0px 20px var(--shadow3);}
+75% {text-shadow: -20px 0px 30px var(--shadow3);}
+100% {text-shadow: 0px 0px 20px var(--shadow3);}
+}
+
+@keyframes glow {
+0% {text-shadow: 0px 0px 20px var(--glow);}
+25% {text-shadow: 20px 0px 30px var(--glow);}
+50% {text-shadow: 0px 0px 20px var(--glow2);}
+75% {text-shadow: -20px 0px 30px var(--glow);}
+100% {text-shadow: 0px 0px 20px var(--glow);}
+}
+
+.text h2:hover{
+    color: var(--text);
+    text-shadow: 0 5px 10px var(--shadow2);
+}
+
+.text h4 {
+    position: relative;
+    animation-name: glow;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.text h4::before {
+    content: "";
+    position: absolute;
+    top: -55%;
+    left: 25%;
+    width: 50%;
+    height: 2.4em;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+}
+
+.text h4:hover {
+    color: var(--text);
+    animation-name: glow2;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.text p {
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.text p:hover{
+    color: var(--text);
+}
+
+.text p::before {
+    content: url("images/iconmonstr-location-2.svg");
+    display: inline-block;
+    vertical-align: middle;
+    transform: scale(0.5);
+    margin-right: -3px;
+    filter: invert(76%) sepia(19%) saturate(256%) hue-rotate(179deg) brightness(84%) contrast(88%);
+}
+
+
+
+.text p:hover::before {
+    filter: invert(70%) sepia(68%) saturate(2166%) hue-rotate(344deg) brightness(102%) contrast(101%);
+}
+
+
+/*
+Stretch goals:
+Find other ways you can personalize 
+the design of your business card, e.g.:
+- change the border(s)
+- add border radius
+- shuffle the layout
+- shadows        🤯
+- hover effects  🤯🤯
+- animations     🤯🤯🤯
+*/
+
